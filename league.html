@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+button { cursor:pointer; }
+.row { display:flex; gap:.6rem; align-items:center; }
+.results { display:grid; gap:.75rem; }
+.pill { display:inline-block; padding:.3rem .55rem; border-radius:999px; border:1px solid rgba(255,255,255,.15); font-size:.85rem; }
+.error { color: #ef4444; }
+.loading { opacity:.7; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+</style>
+</head>
+<body>
+<div class="page">
+<header class="container">
+<a href="/" class="btn" aria-label="Back to home">← Back</a>
+<h1>League Data Lookup</h1>
+<span></span>
+</header>
+
+
+<main class="container grid two">
+<!-- Controls -->
+<section class="card">
+<h2 class="muted">Search Summoner</h2>
+<form id="lookup-form" class="grid" autocomplete="off">
+<label>
+<div>Summoner Name</div>
+<input id="summoner" name="summoner" placeholder="e.g., MiltonSky" required />
+</label>
+<div class="row">
+<label>
+<div>Region</div>
+<select id="region" name="region">
+<option value="na1">NA</option>
+<option value="euw1">EUW</option>
+<option value="eun1">EUNE</option>
+<option value="kr">KR</option>
+<option value="br1">BR</option>
+<option value="la1">LAN</option>
+<option value="la2">LAS</option>
+<option value="oc1">OCE</option>
+<option value="ru">RU</option>
+<option value="tr1">TR</option>
+<option value="jp1">JP</option>
+</select>
+</label>
+<button id="submit" type="submit" class="btn">Look up</button>
+</div>
+<div id="status" class="muted"></div>
+</form>
+</section>
+
+
+<!-- Results -->
+<section class="card">
+<h2 class="muted">Results</h2>
+<div id="output" class="results">
+<p class="muted">Enter a summoner above to see level and top champions.</p>
+</div>
+</section>
+</main>
+
+
+<footer class="container muted">
+<small>
+Powered by Lambda → Riot API • Built by Milton Skye Ashton Murray
+</small>
+</footer>
+</div>
+
+
+<script src="/league.js" defer></script>
+</body>
+</html>
