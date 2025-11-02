@@ -75,7 +75,7 @@
       <a href="#facts">Fun Facts</a>
       <a href="#aws-journey">AWS Challenge</a>
       <a href="#contact">Contact</a>
-      <a href="#league">Live Project</a>
+      <a href="league.html">Live Project</a>
     </nav>
   </header>
 
@@ -182,46 +182,10 @@
     <strong>Technologies:</strong> HTML • CSS • JavaScript • AWS Amplify • AWS Lambda • Riot Games API • GitHub
   </p>
   <p>
-    <a href=""league.html" class="btn">Live Project</a>
+    <a href="league.html" class="btn">Live Project</a>
     <a href="https://github.com/Ashton7092/rift-rewind-project" class="btn" target="_blank" rel="noreferrer">View Code on GitHub</a>
   </p>
 </section>
-
-    <!-- LEAGUE DATA LOOKUP -->
-    <section id="league" class="section card" aria-labelledby="league-title">
-      <h3 id="league-title">League Data Lookup</h3>
-      <p>Enter a Riot ID to see their level and top champions.</p>
-      <div id="lookup-message" class="lookup-message" role="status" aria-live="polite" style="display:none"></div>
-      <div class="lookup-form-container">
-        <div class="form-group">
-          <label for="summoner-name">Riot ID</label>
-          <input type="text" id="summoner-name" name="summoner-name" placeholder="GameName#TAG (e.g., Hide on bush#KR1)" required>
-          <small style="color:var(--muted); display:block; margin-top:4px">Format: GameName#TAG</small>
-        </div>
-        <div class="form-group">
-          <label for="region">Region</label>
-          <select id="region" name="region">
-            <option value="na1">North America</option>
-            <option value="euw1">Europe West</option>
-            <option value="eun1">Europe Nordic & East</option>
-            <option value="kr">Korea</option>
-            <option value="br1">Brazil</option>
-            <option value="la1">Latin America North</option>
-            <option value="la2">Latin America South</option>
-            <option value="oc1">Oceania</option>
-            <option value="tr1">Turkey</option>
-            <option value="ru">Russia</option>
-            <option value="jp1">Japan</option>
-          </select>
-        </div>
-        <button type="button" id="lookup-btn" class="btn lookup-submit-btn">Look Up Summoner</button>
-      </div>
-      <div id="summoner-results" class="summoner-results" style="display:none">
-        <h4>Summoner Info</h4>
-        <div id="summoner-info"></div>
-        <div id="champion-mastery" style="margin-top:10px"></div>
-      </div>
-    </section>
   </main>
 
   <footer>
