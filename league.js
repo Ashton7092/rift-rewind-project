@@ -52,7 +52,7 @@
       const res = await fetch(LAMBDA_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ summoner, region })
+        body: JSON.stringify({ summonerName, region })
       });
 
       if (!res.ok) {
