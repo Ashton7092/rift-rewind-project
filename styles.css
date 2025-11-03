@@ -564,3 +564,41 @@ footer {
         font-size: 24px;
     }
 }
+/* === PURPLE THEME UPDATE === */
+a,
+.fact-card a,
+.cta-button,
+.aws-link,
+.contact-submit-btn,
+.lookup-submit-btn {
+  color: #a855f7 !important; /* main purple tone for links/text */
+}
+
+a:hover,
+.fact-card a:hover,
+.cta-button:hover,
+.aws-link:hover,
+.contact-submit-btn:hover,
+.lookup-submit-btn:hover {
+  color: #9333ea !important; /* darker hover tone */
+}
+
+.cta-button,
+.aws-link,
+.contact-submit-btn,
+.lookup-submit-btn {
+  background: #a855f7 !important; /* purple background for buttons */
+}
+
+.cta-button:hover,
+.aws-link:hover,
+.contact-submit-btn:hover,
+.lookup-submit-btn:hover {
+  background: #9333ea !important; /* hover background */
+}
+
+/* Optional — Adjust gradients to match purple tone */
+.hero::after,
+.fact-card::before {
+  background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%) !important;
+}
