@@ -17,11 +17,20 @@
     output.innerHTML = `<p class="error">${message}</p>`;
   }
 
+  // Accepts either:
+  // A) { name, level, topChampions, profileIconUrl }
+  // B) { summoner: { name, level, profileIconUrl }, topChampions: [...] }
   function renderResult(data) {
-    const { level, topChampions = [], profileIconUrl, name } = data || {};
+    const flat = data || {};
+    const nested = flat.summoner || {};
+    const name = flat.name ?? nested.name ?? 'Unknown';
+    const level = flat.level ?? nested.level ?? '—';
+    const profileIconUrl = flat.profileIconUrl ?? nested.profileIconUrl ?? null;
+    const topChampions = Array.isArray(flat.topChampions) ? flat.topChampions : [];
+
     const champs = topChampions
       .slice(0, 5)
-      .map(c => `<li><span class="pill">${c.name}</span> <span class="mono">${(c.points ?? 0).toLocaleString()} pts</span></li>`)
+      .map(c => `<li><span class="pill">${c.name ?? c.championName ?? c.championId}</span> <span class="mono">${Number(c.points ?? c.championPoints ?? 0).toLocaleString()} pts</span></li>`)
       .join('');
 
     output.innerHTML = `
@@ -29,8 +38,8 @@
         ${profileIconUrl ? `<img src="${profileIconUrl}" alt="Profile icon" width="64" height="64" style="border-radius:12px;" />` : ''}
         <div>
           <div class="muted">Summoner</div>
-          <h3 style="margin:.1rem 0;">${name ?? 'Unknown'}</h3>
-          <div class="muted">Level <strong>${level ?? '—'}</strong></div>
+          <h3 style="margin:.1rem 0;">${name}</h3>
+          <div class="muted">Level <strong>${level}</strong></div>
         </div>
       </div>
       <div style="margin-top:1rem;">
@@ -42,9 +51,11 @@
 
   async function lookup(e) {
     e.preventDefault();
-    const summoner = summonerInput.value.trim();
+
+    // Define summonerName explicitly so the payload has a real variable
+    const summonerName = summonerInput.value.trim();
     const region = regionSelect.value;
-    if (!summoner) return;
+    if (!summonerName) return;
 
     setLoading(true, 'Fetching…');
 
@@ -52,6 +63,7 @@
       const res = await fetch(LAMBDA_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        // If your Lambda expects "summoner" instead, change the key below to { summoner: summonerName, region }
         body: JSON.stringify({ summonerName, region })
       });
 
@@ -77,5 +89,5 @@
   const s = params.get('s'); const r = params.get('r');
   if (s) summonerInput.value = s;
   if (r) regionSelect.value = r;
-  if (s) document.getElementById('submit').click();
+  if (s) document.getElementById('submit')?.click();
 })();
