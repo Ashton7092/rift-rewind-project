@@ -1,82 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IT Ticket Classifier</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Support Ticket Classifier</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="nav-logo">Milton Murray</a>
-            <ul class="nav-links">
-                <li><a href="index.html#facts">Fun Facts</a></li>
-                <li><a href="index.html#challenge">AWS Challenge</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="index.html#live">Live Project</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main class="project-page">
+    <!-- NAVIGATION (matches index.html exactly) -->
+    <nav style="padding: 20px 40px; display: flex; gap: 20px; font-weight: 600;">
+        <a href="index.html">Milton Murray</a>
+        <a href="index.html#fun-facts">Fun Facts</a>
+        <a href="aws.html">AWS Challenge</a>
+        <a href="contact.html">Contact</a>
+        <a href="ticket-classifier.html">Live Project</a>
+    </nav>
+
+    <main>
+
+        <!-- HERO: Matches your homepage hero style -->
         <section class="hero">
             <h1>IT Support Ticket Classifier</h1>
-            <p class="tagline">
-                A machine-learning NLP model that classifies IT help-desk tickets
-                using a fine-tuned DistilBERT transformer.
+            <p class="tagline">A machine-learning NLP system that automatically categorizes help-desk tickets.</p>
+        </section>
+
+        <!-- SECTION 1: Overview Card -->
+        <section class="fun-facts">
+            <h3>📝 Project Overview</h3>
+            <div class="facts-grid">
+                <article class="fact-card">
+                    <h4>What This Is</h4>
+                    <p>
+                        A custom DistilBERT NLP model fine-tuned on IT support tickets to classify issues like 
+                        <strong>Password Reset</strong>, <strong>Network Issue</strong>, <strong>Email Error</strong>, and more.
+                    </p>
+                </article>
+
+                <article class="fact-card">
+                    <h4>Why I Built It</h4>
+                    <p>
+                        To explore real-world Natural Language Processing workflows and automate helpdesk triage 
+                        for faster ticket routing.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECTION 2: How It Works -->
+        <section class="fun-facts">
+            <h3>🧠 How It Works</h3>
+            <div class="facts-grid">
+                <article class="fact-card">
+                    <h4>Data Prep</h4>
+                    <p>Preprocessed real support tickets & applied label encoding.</p>
+                </article>
+
+                <article class="fact-card">
+                    <h4>NLP Model</h4>
+                    <p>Fine-tuned DistilBERT on hundreds of support ticket samples.</p>
+                </article>
+
+                <article class="fact-card">
+                    <h4>Model Assets</h4>
+                    <p>Includes tokenizer, trained model weights & label encoder.</p>
+                </article>
+
+                <article class="fact-card">
+                    <h4>Prediction Script</h4>
+                    <p>Python script generates instant predictions from new tickets.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Training Details -->
+        <section class="fun-facts">
+            <h3>⚙️ Model Training</h3>
+            <div class="facts-grid">
+                <article class="fact-card">
+                    <h4>Hyperparameters</h4>
+                    <p>
+                        • Batch Size: 8 <br>
+                        • Epochs: 3 <br>
+                        • Learning Rate: 5e-5 <br>
+                        • Weight Decay: 0.01
+                    </p>
+                </article>
+
+                <article class="fact-card">
+                    <h4>Training Output</h4>
+                    <p>Achieved strong performance with stable validation loss across epochs.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Try the Model (Matches AWS Journey Card Style) -->
+        <section class="aws-journey">
+            <h3>Try the NLP Model</h3>
+            <p>
+                Use the Python script included in the project to classify new IT support tickets.  
+                Enter a description such as: 
+                <em>“My Outlook keeps crashing whenever I open an email”</em>.
             </p>
+            <a href="docs/ticket-classifier-guide.pdf" class="cta-button" target="_blank">
+                Download Usage Guide
+            </a>
         </section>
 
-        <section class="project-section">
-            <div class="fact-card">
-                <h3>📝 Overview</h3>
-                <p>
-                    This project uses a fine-tuned DistilBERT model to automatically
-                    categorize IT support tickets into groups such as 
-                    <strong>Password Reset</strong>, 
-                    <strong>Network Issue</strong>, 
-                    <strong>Email Error</strong>, and more.
-                </p>
-            </div>
-
-            <div class="fact-card">
-                <h3>🧠 How It Works</h3>
-                <ul>
-                    <li>Processed real IT help-desk tickets</li>
-                    <li>Encoded categories using label encoder</li>
-                    <li>Fine-tuned DistilBERT on ticket text</li>
-                    <li>Saved model, tokenizer, and label encoder</li>
-                    <li>Built prediction script in Python for real-time classification</li>
-                </ul>
-            </div>
-
-            <div class="fact-card">
-                <h3>📊 Model Training</h3>
-                <ul>
-                    <li>Batch Size: 8</li>
-                    <li>Epochs: 3</li>
-                    <li>Learning Rate: 5e-5</li>
-                    <li>Weight Decay: 0.01</li>
-                </ul>
-            </div>
-
-            <div class="fact-card">
-                <h3>🔧 Tech Stack</h3>
-                <ul>
-                    <li>Python, Transformers, PyTorch</li>
-                    <li>Pandas + Label Encoding</li>
-                    <li>DistilBERT Fine-tuning</li>
-                    <li>Custom training pipeline</li>
-                </ul>
-            </div>
-        </section>
-
-        <a href="index.html" class="back-button">← Back to Home</a>
     </main>
+
+    <footer>
+        © 2025 Milton Murray — All rights reserved.
+    </footer>
 
 </body>
 </html>
+
 
 
