@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT Support Ticket Classifier | Milton Murray</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="docs/my-hobby-details.pdf" class="nav-link" target="_blank">Docs</a>
+    </nav>
+</header>
+
+<main class="project-page">
+
+    <section class="project-hero">
+        <h1>IT Support Ticket Classifier</h1>
+        <p class="subtitle">
+            A DistilBERT-powered NLP model that classifies IT help-desk tickets into predefined issue categories.
+        </p>
+    </section>
+
+    <section class="project-section">
+        <h2>Overview</h2>
+        <p>
+            This project builds a machine learning system that automatically classifies IT support tickets.
+            Using a fine-tuned DistilBERT model from HuggingFace Transformers,
+            it turns unstructured help-desk text into meaningful categories such as:
+            <strong>Email Issues</strong>, <strong>Networking</strong>, <strong>Hardware</strong>,
+            <strong>Software Access</strong>, and more.
+        </p>
+    </section>
+
+    <section class="project-section">
+        <h2>How It Works</h2>
+        <ul>
+            <li>Loads raw help-desk text from CSV</li>
+            <li>Uses DistilBertTokenizerFast to convert text into token IDs</li>
+            <li>Fine-tunes DistilBERT for 3 epochs using a classification head</li>
+            <li>Evaluates using accuracy + cross-entropy loss</li>
+            <li>Exports final model, tokenizer, and label encoder</li>
+        </ul>
+    </section>
+
+    <section class="project-section">
+        <h2>Training Details</h2>
+        <ul>
+            <li><strong>Model:</strong> distilbert-base-uncased</li>
+            <li><strong>Batch Size:</strong> 8</li>
+            <li><strong>Learning Rate:</strong> 5e-5</li>
+            <li><strong>Epochs:</strong> 3</li>
+            <li><strong>Framework:</strong> PyTorch + HuggingFace Transformers</li>
+        </ul>
+    </section>
+
+    <section class="project-section">
+        <h2>Example Prediction</h2>
+        <pre class="code-block">
+Input:
+"My Outlook keeps crashing whenever I open an email."
+
+Prediction:
+"Email Issue"
+        </pre>
+    </section>
+
+    <section class="project-section">
+        <h2>Next Steps</h2>
+        <p>
+            I plan to deploy this model using FastAPI and build a simple web UI where users can paste ticket text
+            and instantly view predictions. This will mimic real enterprise IT ticket systems.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2025 Milton Murray</p>
+</footer>
+
+</body>
+</html>
