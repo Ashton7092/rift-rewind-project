@@ -6,10 +6,6 @@
   <title>Milton Murray — Portfolio</title>
 
   <meta name="description" content="Cloud builder & AWS enthusiast. Projects, challenges, and contact." />
-  <meta property="og:title" content="Milton Murray — Portfolio" />
-  <meta property="og:description" content="Cloud builder & AWS enthusiast. Projects, challenges, and contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/og-image.png" />
   <meta name="color-scheme" content="dark light" />
 
   <link rel="icon" href="/favicon.ico" />
@@ -25,9 +21,9 @@
     <a href="#facts">Fun Facts</a>
     <a href="#projects">Projects</a>
     <a href="#aws-journey">AWS Challenge</a>
-    <a href="#classifier">Classifier</a>
     <a href="#contact">Contact</a>
     <a href="league.html">Live Project</a>
+    <a href="ticket-classifier.html">Classifier</a>
   </nav>
 </header>
 
@@ -93,7 +89,7 @@
         </div>
         <h4>🤖 IT Ticket Classifier</h4>
         <p class="project-tagline">AI / NLP Project</p>
-        <p>An intelligent classifier trained on DistilBERT to categorize IT support tickets.</p>
+        <p>A DistilBERT-powered classifier deployed using AWS Lambda.</p>
       </a>
 
       <a href="league.html" class="project-card">
@@ -123,28 +119,12 @@
     <p>This website is part of my AWS Builder Challenge workstation.</p>
   </section>
 
-  <!-- CLASSIFIER UI (NEW) -->
-  <section id="classifier" class="section classifier-ui">
-    <h3>IT Ticket Classifier</h3>
-    <p>Paste any support message below and get an instant category prediction.</p>
-
-    <div class="form-group">
-      <label for="ticketInput">Ticket Text</label>
-      <textarea id="ticketInput" rows="6"></textarea>
-    </div>
-
-    <button class="contact-submit-btn" id="runClassifier">Classify Ticket</button>
-
-    <div id="classifierResult" style="margin-top:20px; color:var(--muted);"></div>
-  </section>
-
   <!-- CONTACT -->
   <section id="contact" class="section contact-form">
     <h3>Contact</h3>
     <p>Email me anytime — contact API will be connected soon.</p>
 
     <div class="contact-form-container">
-      <!-- placeholder -->
       <button class="contact-submit-btn">Send Message</button>
     </div>
   </section>
@@ -161,6 +141,7 @@
 
 </body>
 </html>
+
 
 
 
