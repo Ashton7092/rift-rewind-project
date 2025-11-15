@@ -1,91 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>League Data Lookup — Milton Skye Ashton Murray</title>
-  <meta name="color-scheme" content="light dark" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Rift Rewind Lookup</title>
+
+  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0b0d10; --panel:#11151a; --text:#e9edf1; --muted:#a7b0ba; --ring:rgba(92,200,255,.35)}
-    @media (prefers-color-scheme: light){:root{--bg:#f7f9fb; --panel:#ffffff; --text:#0b0d10; --muted:#4c5560; --ring:rgba(0,102,255,.18)}}
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); line-height:1.6}
-    a{color:inherit; text-decoration:none}
-    a.btn{color:var(--text)}
-    header, main, footer{max-width:1100px; margin:0 auto; padding:24px}
-    header{display:flex; align-items:center; justify-content:space-between; gap:16px}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:14px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 96%, transparent), color-mix(in oklab, var(--panel) 90%, transparent))}
-    .btn:hover{box-shadow:0 0 0 3px var(--ring)}
-    .container{width:min(1100px, 92%); margin-inline:auto;}
-    .card{background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 94%, transparent), color-mix(in oklab, var(--panel) 86%, transparent)); border:1px solid color-mix(in oklab, var(--text) 14%, transparent); border-radius:20px; padding:20px}
-    .grid{display:grid; gap:16px}
-    .grid.two{grid-template-columns:1fr}
-    @media (min-width: 900px){.grid.two{grid-template-columns:420px 1fr}}
-    .muted{color:var(--muted)}
-    input, select, button{padding:10px; border-radius:12px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); background:var(--panel); color:var(--text)}
-    button{cursor:pointer}
-    .row{display:flex; gap:.6rem; align-items:center}
-    .results{display:grid; gap:.75rem}
-    .pill{display:inline-block; padding:.3rem .55rem; border-radius:999px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); font-size:.85rem}
-    .error{color:#ef4444}
-    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
-    footer{padding:40px 24px; text-align:center; color:var(--muted)}
-  </style>
 </head>
+
 <body>
-  <header class="container">
-    <a href="index.html" class="btn" aria-label="Back to home">← Back</a>
-    <h1>League Data Lookup</h1>
-    <span></span>
-  </header>
 
-  <main class="container grid two">
-    <section class="card">
-      <h2 class="muted">Search Summoner</h2>
-      <form id="lookup-form" class="grid" autocomplete="off">
-        <label>
-          <div>Summoner Name</div>
-          <input id="summoner" name="summoner" placeholder="e.g., MiltonSky" required />
-        </label>
-        <div class="row">
-          <label>
-            <div>Region</div>
-            <select id="region" name="region">
-              <option value="na1">NA</option>
-              <option value="euw1">EUW</option>
-              <option value="eun1">EUNE</option>
-              <option value="kr">KR</option>
-              <option value="br1">BR</option>
-              <option value="la1">LAN</option>
-              <option value="la2">LAS</option>
-              <option value="oc1">OCE</option>
-              <option value="ru">RU</option>
-              <option value="tr1">TR</option>
-              <option value="jp1">JP</option>
-            </select>
-          </label>
-          <button id="submit" type="submit" class="btn">Look up</button>
-        </div>
-        <div id="status" class="muted" aria-live="polite"></div>
-      </form>
-    </section>
+<header>
+  <strong>Rift Rewind</strong>
+  <nav>
+    <a href="index.html">Back to Portfolio</a>
+  </nav>
+</header>
 
-    <section class="card">
-      <h2 class="muted">Results</h2>
-      <div id="output" class="results">
-        <p class="muted">Enter a summoner's name on the left to see level and top champions.</p>
+<main>
+
+  <section class="league-lookup">
+    <h3>🎮 Rift Rewind Lookup</h3>
+    <p>Enter your summoner details below to retrieve current season data.</p>
+
+    <div class="lookup-form-container">
+
+      <div class="form-group">
+        <label for="region">Region</label>
+        <select id="region">
+          <option value="">Select region...</option>
+          <option value="na1">NA</option>
+          <option value="euw1">EUW</option>
+          <option value="eun1">EUNE</option>
+          <option value="kr">KR</option>
+        </select>
       </div>
-    </section>
-  </main>
 
-  <footer class="container muted">
-    <small>Powered by Lambda → Riot API • Built by Milton Skye Ashton Murray</small>
-  </footer>
+      <div class="form-group">
+        <label for="summoner">Summoner Name</label>
+        <input type="text" id="summoner" placeholder="e.g. Faker" />
+      </div>
 
-  <script src="league.js" defer></script>
+      <button class="lookup-submit-btn" id="searchBtn">Search</button>
+
+      <div id="lookupMessage"></div>
+
+    </div>
+
+    <div id="results" class="summoner-results" style="display:none;"></div>
+
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Milton Murray. Powered by AWS.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
+
