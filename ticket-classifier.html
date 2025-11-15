@@ -1,120 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Support Ticket Classifier</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Support Ticket Classifier</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- NAVIGATION (matches index.html exactly) -->
-    <nav style="padding: 20px 40px; display: flex; gap: 20px; font-weight: 600;">
-        <a href="index.html">Milton Murray</a>
-        <a href="index.html#fun-facts">Fun Facts</a>
-        <a href="aws.html">AWS Challenge</a>
-        <a href="contact.html">Contact</a>
-        <a href="ticket-classifier.html">Live Project</a>
-    </nav>
+<header>
+  <strong>Milton Murray</strong>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#aws-journey">AWS Challenge</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
 
-    <main>
+<main>
 
-        <!-- HERO: Matches your homepage hero style -->
-        <section class="hero">
-            <h1>IT Support Ticket Classifier</h1>
-            <p class="tagline">A machine-learning NLP system that automatically categorizes help-desk tickets.</p>
-        </section>
+  <!-- HERO -->
+  <section class="hero">
+    <img src="profile-photo.svg" class="profile-photo" alt="Profile">
+    <div>
+      <h1>IT Support<br>Ticket Classifier</h1>
+      <p class="tagline">
+        A machine-learning NLP system that automatically categorizes help-desk tickets.
+      </p>
+    </div>
+  </section>
 
-        <!-- SECTION 1: Overview Card -->
-        <section class="fun-facts">
-            <h3>📝 Project Overview</h3>
-            <div class="facts-grid">
-                <article class="fact-card">
-                    <h4>What This Is</h4>
-                    <p>
-                        A custom DistilBERT NLP model fine-tuned on IT support tickets to classify issues like 
-                        <strong>Password Reset</strong>, <strong>Network Issue</strong>, <strong>Email Error</strong>, and more.
-                    </p>
-                </article>
+  <!-- PROJECT OVERVIEW -->
+  <section class="section">
+    <h3>📁 Project Overview</h3>
 
-                <article class="fact-card">
-                    <h4>Why I Built It</h4>
-                    <p>
-                        To explore real-world Natural Language Processing workflows and automate helpdesk triage 
-                        for faster ticket routing.
-                    </p>
-                </article>
-            </div>
-        </section>
+    <div class="project-card">
+      <h4>What This Is</h4>
+      <p>
+        A custom DistilBERT NLP model fine-tuned on IT support tickets to classify issues like
+        <strong>Password Reset</strong>, <strong>Network Issue</strong>, <strong>Email Error</strong>, and more.
+      </p>
+    </div>
 
-        <!-- SECTION 2: How It Works -->
-        <section class="fun-facts">
-            <h3>🧠 How It Works</h3>
-            <div class="facts-grid">
-                <article class="fact-card">
-                    <h4>Data Prep</h4>
-                    <p>Preprocessed real support tickets & applied label encoding.</p>
-                </article>
+    <div class="project-card">
+      <h4>Why I Built It</h4>
+      <p>
+        To explore real-world Natural Language Processing workflows and automate helpdesk triage for faster routing.
+      </p>
+    </div>
 
-                <article class="fact-card">
-                    <h4>NLP Model</h4>
-                    <p>Fine-tuned DistilBERT on hundreds of support ticket samples.</p>
-                </article>
+    <div class="project-card">
+      <h4>How It Works</h4>
+      <p><strong>Data Prep:</strong> Preprocessed real support tickets & applied label encoding.</p>
+      <p><strong>NLP Model:</strong> Fine-tuned DistilBERT on multi-class ticket data.</p>
+      <p><strong>Deployment:</strong> Packs the model into AWS Lambda for serverless inference.</p>
+    </div>
+  </section>
 
-                <article class="fact-card">
-                    <h4>Model Assets</h4>
-                    <p>Includes tokenizer, trained model weights & label encoder.</p>
-                </article>
+  <!-- CLASSIFIER UI -->
+  <section id="classifier" class="section classifier-ui">
+    <h3>🔍 Try the Classifier</h3>
+    <p>Paste any ticket message below and get a prediction.</p>
 
-                <article class="fact-card">
-                    <h4>Prediction Script</h4>
-                    <p>Python script generates instant predictions from new tickets.</p>
-                </article>
-            </div>
-        </section>
+    <div class="form-group">
+      <label for="ticketInput">Ticket Text</label>
+      <textarea id="ticketInput" rows="6" placeholder="Describe the issue…"></textarea>
+    </div>
 
-        <!-- SECTION 3: Training Details -->
-        <section class="fun-facts">
-            <h3>⚙️ Model Training</h3>
-            <div class="facts-grid">
-                <article class="fact-card">
-                    <h4>Hyperparameters</h4>
-                    <p>
-                        • Batch Size: 8 <br>
-                        • Epochs: 3 <br>
-                        • Learning Rate: 5e-5 <br>
-                        • Weight Decay: 0.01
-                    </p>
-                </article>
+    <button class="contact-submit-btn" id="runClassifier">Classify Ticket</button>
 
-                <article class="fact-card">
-                    <h4>Training Output</h4>
-                    <p>Achieved strong performance with stable validation loss across epochs.</p>
-                </article>
-            </div>
-        </section>
+    <div id="classifierResult" style="margin-top:20px; color:var(--muted);"></div>
+  </section>
 
-        <!-- SECTION 4: Try the Model (Matches AWS Journey Card Style) -->
-        <section class="aws-journey">
-            <h3>Try the NLP Model</h3>
-            <p>
-                Use the Python script included in the project to classify new IT support tickets.  
-                Enter a description such as: 
-                <em>“My Outlook keeps crashing whenever I open an email”</em>.
-            </p>
-            <a href="docs/ticket-classifier-guide.pdf" class="cta-button" target="_blank">
-                Download Usage Guide
-            </a>
-        </section>
+</main>
 
-    </main>
+<footer>
+  © <span id="year"></span> Milton Murray. Built on AWS.
+</footer>
 
-    <footer>
-        © 2025 Milton Murray — All rights reserved.
-    </footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("runClassifier").addEventListener("click", async () => {
+    const text = document.getElementById("ticketInput").value.trim();
+    const resultDiv = document.getElementById("classifierResult");
+
+    if (!text) {
+      resultDiv.style.color = "var(--muted)";
+      resultDiv.textContent = "Please enter a ticket description.";
+      return;
+    }
+
+    resultDiv.style.color = "var(--accent)";
+    resultDiv.textContent = "Classifying…";
+
+    try {
+      const res = await fetch("YOUR_LAMBDA_ENDPOINT_URL", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text })
+      });
+
+      const data = await res.json();
+      resultDiv.style.color = "var(--text)";
+      resultDiv.textContent = "Predicted Category → " + (data.category || "N/A");
+    } 
+    catch (err) {
+      resultDiv.style.color = "#dc2626";
+      resultDiv.textContent = "Error contacting classifier.";
+    }
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
