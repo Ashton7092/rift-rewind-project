@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Milton Murray — Portfolio</title>
+
   <meta name="description" content="Cloud builder & AWS enthusiast. Projects, challenges, and contact." />
   <meta property="og:title" content="Milton Murray — Portfolio" />
   <meta property="og:description" content="Cloud builder & AWS enthusiast. Projects, challenges, and contact." />
@@ -26,7 +26,7 @@
       --muted:#a7b0ba;
       --brand:#a855f7;
       --accent:#9bffd1;
-      --ring:rgba(92,200,255,.35);
+      --ring:rgba(150,80,255,.35);
     }
     @media (prefers-color-scheme: light){
       :root{
@@ -36,7 +36,7 @@
         --muted:#4c5560;
         --brand:#9333ea;
         --accent:#00b37a;
-        --ring:rgba(0,102,255,.18);
+        --ring:rgba(140,60,255,.25);
       }
     }
 
@@ -110,86 +110,93 @@
 
     /* ---------------- SECTIONS ---------------- */
     .section{padding:32px 0;}
-    .grid{display:grid; gap:16px;}
+    .grid{display:grid; gap:20px;}
 
-    /* Fun Facts */
-    .facts-grid{grid-template-columns:repeat(3, 1fr);}
+    /* ---------------- FACT CARDS ---------------- */
+    .facts-grid{
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    }
     .fact-card{
       background:var(--panel);
       border:1px solid color-mix(in oklab, var(--text) 14%, transparent);
       border-radius:16px;
-      padding:16px;
+      padding:20px;
+      transition:0.25s ease;
+      position:relative;
+    }
+    .fact-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 4px 14px rgba(0,0,0,0.32);
+    }
+
+    .fact-icon{
+      width:32px;
+      height:32px;
+      margin-bottom:14px;
+      color:var(--brand);
     }
 
     /* ---------------- PROJECT CARDS ---------------- */
     .project-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-      gap:20px;
-      margin-top:16px;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:24px;
+      margin-top:20px;
     }
+
     .project-card{
-      display:block;
-      padding:20px;
       background:var(--panel);
-      border-radius:16px;
+      padding:24px;
+      border-radius:18px;
       border:1px solid color-mix(in oklab, var(--text) 14%, transparent);
       text-decoration:none;
       color:var(--text);
-      transition:0.2s ease;
-    }
-    .project-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 4px 16px rgba(0,0,0,0.35);
-    }
-
-    /* AI Card Glow */
-    .ai-hybrid-card{
+      transition:0.25s ease;
       position:relative;
       overflow:hidden;
     }
-    .ai-hybrid-card::before{
-      content:"";
-      position:absolute;
-      top:-40px; right:-40px;
-      width:130px; height:130px;
-      background:radial-gradient(circle,
-        rgba(120,119,198,0.25) 0%,
-        rgba(168,85,247,0.20) 40%,
-        transparent 80%
-      );
-      border-radius:50%;
-      z-index:0;
-    }
-    .ai-hybrid-icon{
-      width:56px; height:56px;
-      border-radius:14px;
-      display:flex; align-items:center; justify-content:center;
-      background:linear-gradient(135deg, #7877c6, #a855f7);
-      margin-bottom:16px;
-      box-shadow:0 4px 10px rgba(120,119,198,0.35);
-      position:relative;
-      z-index:2;
-    }
-    .ai-hybrid-icon img{
-      width:32px; height:32px; filter:brightness(1.1);
-      z-index:3;
+
+    .project-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 6px 22px rgba(120,80,200,0.45);
     }
 
-    /* ---------------- RESPONSIVE ---------------- */
-    @media (max-width: 900px){
-      .facts-grid{grid-template-columns:1fr 1fr;}
+    .project-icon-wrap{
+      width:56px;
+      height:56px;
+      border-radius:16px;
+      background:linear-gradient(135deg, #7877c6, #a855f7);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom:18px;
+      box-shadow:0 4px 12px rgba(120,119,198,0.35);
     }
+
+    .project-icon-wrap img{
+      width:32px;
+      height:32px;
+      filter:brightness(1.15);
+    }
+
+    .project-tagline{
+      font-size:14px;
+      color:var(--muted);
+      margin-top:-6px;
+      margin-bottom:10px;
+    }
+
+    footer{text-align:center; padding:40px 0; color:var(--muted);}
+
     @media (max-width: 540px){
       .hero{grid-template-columns:1fr; text-align:center;}
       .profile-photo{margin:0 auto;}
     }
-
-    footer{text-align:center; padding:40px 0; color:var(--muted);}
   </style>
 </head>
 
 <body>
+
 <header>
   <strong>Milton Murray</strong>
   <nav>
@@ -219,21 +226,29 @@
     <div class="grid facts-grid">
 
       <article class="fact-card">
+        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
         <h4>🚀 Challenge In Progress</h4>
         <p>Currently doing the AWS Builder Challenge: Build a website on the cloud.</p>
       </article>
 
       <article class="fact-card">
+        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
         <h4>🎯 Learning Goal</h4>
-        <p>Building my skills one AWS service at a time — S3, CloudFront, Lambda and more.</p>
+        <p>Building my skills one AWS service at a time — S3, CloudFront, Lambda & more.</p>
       </article>
 
       <article class="fact-card">
+        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24"><path d="M4 20l8-16 8 16H4z"/></svg>
         <h4>🥋 Hobby</h4>
         <p>Black Belt (First Dan) in Shotokan Karate; former Trinidad & Tobago U15 national athlete.</p>
       </article>
 
       <article class="fact-card">
+        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>
         <h4>📸 Newsletter</h4>
         <a href="docs/my-hobby-details.pdf" target="_blank">TKA Newsletter (PDF)</a>
       </article>
@@ -247,19 +262,34 @@
 
     <div class="project-grid">
 
-      <!-- AI Hybrid ML Project -->
-      <a href="ticket-classifier.html" class="project-card ai-hybrid-card">
-        <div class="ai-hybrid-icon">
-          <img src="assets/icons/ticket-ai.svg" alt="AI Ticket Icon">
+      <!-- IT Ticket Classifier -->
+      <a href="ticket-classifier.html" class="project-card">
+        <div class="project-icon-wrap">
+          <img src="assets/icons/ticket-solid.svg" alt="">
         </div>
-        <h4>IT Ticket Classifier</h4>
-        <p>An NLP-powered ML model that classifies IT help-desk tickets using DistilBERT.</p>
+        <h4>🤖 IT Ticket Classifier</h4>
+        <p class="project-tagline">AI / NLP Project</p>
+        <p>An intelligent classifier trained on DistilBERT to categorize IT support tickets.</p>
       </a>
 
-      <!-- LoL Project -->
+      <!-- Rift Rewind -->
       <a href="league.html" class="project-card">
-        <h4>Rift Rewind Lookup</h4>
-        <p>A real-time Summoner stats lookup app powered by AWS Lambda & Riot API.</p>
+        <div class="project-icon-wrap">
+          <img src="assets/icons/gamepad-solid.svg" alt="">
+        </div>
+        <h4>🎮 Rift Rewind Lookup</h4>
+        <p class="project-tagline">Serverless Cloud Project</p>
+        <p>A real-time League of Legends stats lookup using AWS Lambda + Riot API.</p>
+      </a>
+
+      <!-- Placeholder -->
+      <a href="#contact" class="project-card">
+        <div class="project-icon-wrap">
+          <img src="assets/icons/plus-solid.svg" alt="">
+        </div>
+        <h4>📦 More Projects Coming Soon</h4>
+        <p class="project-tagline">Future Work</p>
+        <p>New projects in cloud, AI, backend engineering & automation are in development.</p>
       </a>
 
     </div>
@@ -289,4 +319,5 @@
 
 </body>
 </html>
+
 
