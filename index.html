@@ -29,7 +29,6 @@
 
 <main>
 
-  <!-- HERO -->
   <section class="hero">
     <img src="profile-photo.svg" class="profile-photo" alt="Portrait of Milton Murray">
     <div>
@@ -41,55 +40,97 @@
     </div>
   </section>
 
-  <!-- FUN FACTS -->
   <section id="facts" class="section">
     <h3>Fun Facts About Me</h3>
     <div class="grid facts-grid">
-
       <article class="fact-card">
-        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
         <h4>🚀 Challenge In Progress</h4>
         <p>Currently doing the AWS Builder Challenge: Build a website on the cloud.</p>
       </article>
-
       <article class="fact-card">
-        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
+        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
         <h4>🎯 Learning Goal</h4>
         <p>Building my skills one AWS service at a time — S3, CloudFront, Lambda & more.</p>
       </article>
-
       <article class="fact-card">
-        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24"><path d="M4 20l8-16 8 16H4z"/></svg>
+        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 20l8-16 8 16H4z"/></svg>
         <h4>🥋 Hobby</h4>
         <p>Black Belt (First Dan) in Shotokan Karate; former Trinidad & Tobago U15 national athlete.</p>
       </article>
-
       <article class="fact-card">
-        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>
+        <svg class="fact-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>
         <h4>📸 Newsletter</h4>
         <a href="docs/my-hobby-details.pdf" target="_blank">TKA Newsletter (PDF)</a>
       </article>
-
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects" class="section">
     <h3>Projects</h3>
 
-    <div class="project-grid">
+    <div class="featured-card">
+      <div class="featured-header">
+        <h4>Featured Project: AI Incident-Triage Assistant (“JARVIS”)</h4>
+        <p class="featured-tagline">
+          A custom-built AI IT helpdesk assistant that classifies issues, runs troubleshooting flows,
+          and generates escalation-ready tickets.
+        </p>
+      </div>
 
+      <div class="featured-layout">
+        <div class="featured-content">
+          <p>
+            I engineered an AI-powered IT support assistant that behaves like a real service desk technician.
+            It uses a fine-tuned <strong>DistilBERT classifier</strong> I trained on IT ticket data to predict issue categories,
+            then routes users into 20+ modular troubleshooting flows (VPN, Wi-Fi, Outlook, printers, onboarding, hardware, etc.).
+          </p>
+          <p>
+            The system maintains conversation state (device, OS, location, symptoms, last flow),
+            walks users through multi-step diagnostics with a JARVIS-style persona, and exports complete incident tickets
+            in JSON, text, or Markdown.
+          </p>
+
+          <h5>Architecture & Tech Stack</h5>
+          <ul class="featured-list">
+            <li><strong>Model:</strong> Custom fine-tuned DistilBERT (PyTorch/Transformers)</li>
+            <li><strong>Backend:</strong> Python, Gradio, HuggingFace Spaces</li>
+            <li><strong>Logic:</strong> State machine for 20+ troubleshooting flows</li>
+            <li><strong>Output:</strong> JSON/Markdown ticketing with auto-escalation levels</li>
+          </ul>
+
+          <div class="featured-actions">
+             <a href="#" class="btn" target="_blank">Live Demo</a>
+            <a href="#" class="btn btn-outline" target="_blank">View Code</a>
+          </div>
+        </div>
+
+        <aside class="featured-media">
+          <figure>
+            <img src="images/jarvis-ui.png" alt="JARVIS IT assistant UI">
+            <figcaption>Main JARVIS interface</figcaption>
+          </figure>
+          <figure>
+            <img src="images/jarvis-ticket.png" alt="Generated incident ticket JSON">
+            <figcaption>Generated incident ticket JSON</figcaption>
+          </figure>
+          <figure>
+            <img src="images/jarvis-architecture.png" alt="Diagram of the JARVIS architecture">
+            <figcaption>System Architecture</figcaption>
+          </figure>
+        </aside>
+      </div>
+    </div>
+    <h4 style="margin-top: 3rem; margin-bottom: 1.5rem;">Other Projects</h4>
+    
+    <div class="project-grid">
       <a href="ticket-classifier.html" class="project-card">
         <div class="project-icon-wrap">
-  <svg viewBox="0 0 24 24" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-  <rect x="3" y="3" width="18" height="18" fill="#a855f7" rx="2"/>
-  <rect x="7" y="7" width="10" height="10" fill="#0b0d10"/>
-  <rect x="9" y="9" width="6" height="6" fill="#a855f7"/>
-</svg>
+          <svg viewBox="0 0 24 24" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" fill="#a855f7" rx="2"/>
+            <rect x="7" y="7" width="10" height="10" fill="#0b0d10"/>
+            <rect x="9" y="9" width="6" height="6" fill="#a855f7"/>
+          </svg>
         </div>
         <h4>🤖 IT Ticket Classifier</h4>
         <p class="project-tagline">AI / NLP Project</p>
@@ -98,13 +139,13 @@
 
       <a href="league.html" class="project-card">
         <div class="project-icon-wrap">
-  <svg viewBox="0 0 24 24" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-  <rect x="2" y="9" width="20" height="10" rx="3" fill="#a855f7" />
-  <rect x="7" y="12" width="3" height="3" fill="#0b0d10" />
-  <rect x="14" y="12" width="1.5" height="1.5" fill="#0b0d10" />
-  <rect x="16" y="12" width="1.5" height="1.5" fill="#0b0d10" />
-</svg>
-</div>
+          <svg viewBox="0 0 24 24" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="9" width="20" height="10" rx="3" fill="#a855f7" />
+            <rect x="7" y="12" width="3" height="3" fill="#0b0d10" />
+            <rect x="14" y="12" width="1.5" height="1.5" fill="#0b0d10" />
+            <rect x="16" y="12" width="1.5" height="1.5" fill="#0b0d10" />
+          </svg>
+        </div>
         <h4>🎮 Rift Rewind Lookup</h4>
         <p class="project-tagline">Serverless Cloud Project</p>
         <p>A real-time League of Legends stats lookup using AWS Lambda + Riot API.</p>
@@ -112,27 +153,24 @@
 
       <a href="#contact" class="project-card">
         <div class="project-icon-wrap">
-  <svg viewBox="0 0 24 24" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-  <rect x="3" y="3" width="18" height="18" rx="3" fill="#a855f7"/>
-  <rect x="11" y="7" width="2" height="10" fill="#0b0d10"/>
-  <rect x="7" y="11" width="10" height="2" fill="#0b0d10"/>
-</svg>
-</div>
+          <svg viewBox="0 0 24 24" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="3" fill="#a855f7"/>
+            <rect x="11" y="7" width="2" height="10" fill="#0b0d10"/>
+            <rect x="7" y="11" width="10" height="2" fill="#0b0d10"/>
+          </svg>
+        </div>
         <h4>📦 More Projects Coming Soon</h4>
         <p class="project-tagline">Future Work</p>
         <p>New projects in cloud, AI, backend engineering & automation are in development.</p>
       </a>
-
     </div>
   </section>
 
-  <!-- AWS JOURNEY -->
   <section id="aws-journey" class="section">
     <h3>AWS Journey</h3>
     <p>This website is part of my AWS Builder Challenge workstation.</p>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="section contact-form">
     <h3>Contact</h3>
     <p>Email me anytime — contact API will be connected soon.</p>
@@ -154,7 +192,3 @@
 
 </body>
 </html>
-
-
-
-
